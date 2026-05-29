@@ -1,0 +1,24 @@
+Цель работы: изучить принципы работы ботов, библиотеки, и возможности.
+Теоретическая часть:
+Long Polling — это технология, которая позволяет получать данные о новых событиях с
+помощью «длинных запросов». Сервер получает запрос, но отправляет ответ на него не
+сразу, а лишь тогда, когда произойдёт какое-либо событие (например, придёт новое
+сообщение), либо истечёт заданное время ожидания.
+
+pip install aiogram
+
+import logging
+import time
+from aiogram import Bot, Dispatcher, executor, types
+import Parser
+def Bot():
+bot = Bot(token="Ваш токен")  # Объект бота
+dp = Dispatcher(bot)  # Диспетчер
+@dp.message_handler(commands=['start', 'help'])
+async def process_start_command(message: types.Message):
+await message.reply("Тут ваш текст"
+@dp.message_handler(commands=['command'])
+async def process_start_command(message: types.Message):
+await message.reply("Тут еще что-то")
+
+задача: Чат-бот присылающий курс доллара если он выйдет за заданные границы (2 границы верхняя и нижняя) (+парсинг)
